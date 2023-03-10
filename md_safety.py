@@ -52,7 +52,7 @@ class Safety(object):
     #def calculate_TTC(self):
         if self.speed < 0.1 and self.speed > -0.1:
             return 
-        drive_pub = rospy.Publisher("drive", AckermannDriveStamped, queue_size=10)
+        drive_pub = rospy.Publisher("/vesc/high_level/ackermann_cmd_mux/input/nav_0", AckermannDriveStamped, queue_size=10)
         drive_msg=AckermannDriveStamped()
         subspeeds = self.angles_cos*self.speed
         # TTCs = np.divide(self.ranges, subspeeds,out=np.zeros_like(self.ranges), where=subspeeds!=0)
